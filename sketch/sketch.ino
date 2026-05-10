@@ -123,18 +123,13 @@ void changeBuzzerPotholes()
   buzzer.tone(frequency, duration);
 }
 
-void tmp()
-{
-  return ;
-}
-
 void loop() {
   // IMPORTANT: Mantenir viu el pont de comunicació
   Bridge.update(); 
 
   if (knob.isPressed())
   {
-    Bridge.provide("park_button_pressed", tmp);
+    Bridge.call("park_button_pressed");  
   }
   if (isCalibrated) {
     if (detectMotion())
